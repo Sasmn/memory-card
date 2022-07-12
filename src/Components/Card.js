@@ -5,7 +5,7 @@ const Card = (props) => {
   const [clicked, setClicked] = useState(0);
 
   return (
-    <div className="card">
+    <div onClick={() => props.handleClick(props.id)} className="card">
       <img src={props.src} alt={props.name} />
       <h4>{props.name}</h4>
     </div>

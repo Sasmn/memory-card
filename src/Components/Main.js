@@ -27,8 +27,27 @@ const Main = () => {
     setCards(updatedCards);
   }, []);
 
+  function handleClick(key) {
+    let updatedState = cards.map((card) => {
+      if (card.key === key) {
+        return {
+          ...card,
+          clicked: true,
+        };
+      }
+      return card;
+    });
+    setCards(updatedState);
+  }
+
   const cardElements = cards.map((c) => (
-    <Card key={c.key} name={c.name} src={c.src} />
+    <Card
+      key={c.key}
+      name={c.name}
+      src={c.src}
+      id={c.key}
+      handleClick={handleClick}
+    />
   ));
 
   console.log(cards);
