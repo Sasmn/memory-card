@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 const ScoreContext = React.createContext();
 
 function ScoreContextProvider(props) {
   const [state, setState] = useState({
     currentScore: 0,
-    maxScore: 0,
+    maxScore: localStorage.getItem("maxScore") || 0,
   });
 
   function updateState() {
@@ -22,13 +22,16 @@ function ScoreContextProvider(props) {
     });
   }
 
-  console.log(state);
   function resetScore() {
     setState((prev) => ({
       currentScore: 0,
       maxScore: prev.maxScore,
     }));
   }
+
+  useEffect(() => {
+    localStorage.setItem("maxScore", state.maxScore);
+  }, [state.maxScore]);
 
   return (
     <ScoreContext.Provider

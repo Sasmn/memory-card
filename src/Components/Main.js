@@ -3,9 +3,8 @@ import "../styles/Main.scss";
 import Card from "./Card";
 import { nanoid } from "nanoid";
 import { ScoreContext } from "../Contexts/scoreContext";
-import useDidUpdate from "../CustomHooks/useDidUpdate";
 
-const Main = (props) => {
+const Main = () => {
   /* importing the images and using them to set the default state */
   function importAllImages(i) {
     return i.keys().map(i);
@@ -20,16 +19,9 @@ const Main = (props) => {
       key: nanoid(),
       name: img.slice(str.length, img.indexOf(".")),
       src: img,
-      clicked: false,
+      clicked: 0,
     }))
   );
-
-  /* check, if the card has been already clicked */
-  function checkForEnd(clicked) {
-    if (clicked === true) {
-      props.toggleEnded();
-    }
-  }
 
   /* randomly shuffle the cards, and set as new state */
   function shuffleCards(prevState) {
@@ -38,41 +30,46 @@ const Main = (props) => {
       .sort((a, b) => a.sort - b.sort)
       .map(({ card }) => card);
 
-    setCards(newState);
+    return newState;
+    // setCards(newState);
   }
 
   /* update the clicked attribute of the cards, and shuffle them on click, plus update the scoreline */
   function handleClick(key) {
+    /* update cards state by incrementing the clicked value of the clicked card */
     let updatedState = cards.map((card) => {
       if (card.key === key) {
-        checkForEnd(card.clicked);
         return {
           ...card,
-          clicked: true,
+          clicked: card.clicked + 1,
         };
       }
       return card;
     });
-    shuffleCards(updatedState);
+
+    /* if it's game over, then reset the score, and reset the cards state. If it's still game on, simply update the scoreline */
+    if (!updatedState.every((card) => card.clicked <= 1)) {
+      context.resetScore();
+      updatedState = resetCardsClicked();
+    } else {
+      context.updateScore();
+    }
+    /* always shuffle the cards */
+    updatedState = shuffleCards(updatedState);
+
+    /* and change the state only ones, at the and of the function */
+    setCards(updatedState);
   }
 
   const context = useContext(ScoreContext);
 
-  useDidUpdate(() => {
-    if (props.ended === false) {
-      context.updateScore();
-    } else if (props.ended === true && context.currentScore !== 0) {
-      props.toggleEnded();
-      context.resetScore();
-      resetCardsClicked();
-    }
-  }, [cards]);
-
+  /* resetting the card state back to default */
   function resetCardsClicked() {
     const newCards = cards.map((card) => {
-      return { ...card, clicked: false };
+      return { ...card, clicked: 0 };
     });
-    setCards(newCards);
+
+    return newCards;
   }
 
   /* create the cards */
@@ -86,7 +83,6 @@ const Main = (props) => {
     />
   ));
 
-  console.log(cards);
   return <main>{cardElements}</main>;
 };
 
