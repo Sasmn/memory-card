@@ -10,7 +10,7 @@ function ScoreContextProvider(props) {
   function updateState() {
     setState((prevState) => {
       let current = prevState.currentScore + 1;
-      let max = prevState.macScore;
+      let max = prevState.maxScore;
       if (current > prevState.maxScore) {
         max = current;
       }
@@ -22,12 +22,21 @@ function ScoreContextProvider(props) {
     });
   }
 
+  console.log(state);
+  function resetScore() {
+    setState((prev) => ({
+      currentScore: 0,
+      maxScore: prev.maxScore,
+    }));
+  }
+
   return (
     <ScoreContext.Provider
       value={{
         currentScore: state.currentScore,
         maxScore: state.maxScore,
         updateScore: updateState,
+        resetScore: resetScore,
       }}
     >
       {props.children}

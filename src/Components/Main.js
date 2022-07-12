@@ -3,6 +3,7 @@ import "../styles/Main.scss";
 import Card from "./Card";
 import { nanoid } from "nanoid";
 import { ScoreContext } from "../Contexts/scoreContext";
+import useDidUpdate from "../CustomHooks/useDidUpdate";
 
 const Main = (props) => {
   /* importing the images and using them to set the default state */
@@ -22,7 +23,6 @@ const Main = (props) => {
       clicked: false,
     }))
   );
-
 
   /* check, if the card has been already clicked */
   function checkForEnd(clicked) {
@@ -54,13 +54,26 @@ const Main = (props) => {
       return card;
     });
     shuffleCards(updatedState);
+  }
 
-    console.log(props);
+  const context = useContext(ScoreContext);
+
+  useDidUpdate(() => {
     if (props.ended === false) {
       context.updateScore();
+    } else if (props.ended === true && context.currentScore !== 0) {
+      props.toggleEnded();
+      context.resetScore();
+      resetCardsClicked();
     }
+  }, [cards]);
+
+  function resetCardsClicked() {
+    const newCards = cards.map((card) => {
+      return { ...card, clicked: false };
+    });
+    setCards(newCards);
   }
-  const context = useContext(ScoreContext);
 
   /* create the cards */
   const cardElements = cards.map((c) => (

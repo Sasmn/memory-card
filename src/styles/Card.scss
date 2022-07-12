@@ -1,6 +1,12 @@
 .card {
-  flex: 0 0 calc(80% / 5);
+  flex: 0 0 calc(76% / 6);
   aspect-ratio: 1/1;
   background-color: crimson;
   margin: 2%;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    max-width: 100%;
+  }
 }

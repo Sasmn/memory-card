@@ -7,7 +7,7 @@ function App() {
   const [ended, setEnded] = useState(false);
 
   function toggleEnded() {
-    setEnded(true);
+    setEnded((prev) => !prev);
 
     console.log("VÉGE");
   }
