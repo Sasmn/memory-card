@@ -1,0 +1,13 @@
+.score {
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    gap: 10px;
+}
+
+span{
+    font-size: 30px;
+    font-weight: bold;
+}
