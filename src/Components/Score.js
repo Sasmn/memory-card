@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "../styles/Score.scss";
+import { ScoreContext } from "../Contexts/scoreContext";
 
 const Score = () => {
-  const [scores, setScores] = useState({
-    currentScore: 0,
-    maxScore: 0,
-  });
-
-  function handleChange() {}
+  const context = useContext(ScoreContext);
 
   return (
     <div className="score">
-      <h2>Current score: {scores.currentScore}</h2>
+      <h2>Current score: {context.currentScore}</h2>
       <span> - </span>
-      <h2>Highest score: {scores.maxScore}</h2>
+      <h2>Highest score: {context.maxScore}</h2>
     </div>
   );
 };
