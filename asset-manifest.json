@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.a28c79d1.css",
+    "main.js": "./static/js/main.00b0cfda.js",
+    "static/media/markus-spiske-pZX9QPxeIQc-unsplash.jpg": "./static/media/markus-spiske-pZX9QPxeIQc-unsplash.8f61a06b086590adf4e1.jpg",
+    "static/media/pepper.jpg": "./static/media/pepper.4b18854fcab8de000c76.jpg",
+    "static/media/kiwi.jpg": "./static/media/kiwi.864510b0572fc45ae044.jpg",
+    "static/media/pineapple.jpg": "./static/media/pineapple.be0e06b00ea0c72afd2f.jpg",
+    "static/media/tomato.jpg": "./static/media/tomato.7c7f4c647d697f08c4d8.jpg",
+    "static/media/apple.jpg": "./static/media/apple.3e9dd589d66f73de5afb.jpg",
+    "static/media/strawberries.jpg": "./static/media/strawberries.8ee99796dbcfc954ce0d.jpg",
+    "static/media/broccoli.jpg": "./static/media/broccoli.a5f164c053ba9ece23b0.jpg",
+    "static/media/EduVICWANTBeginner-VariableFont_wght.ttf": "./static/media/EduVICWANTBeginner-VariableFont_wght.6ba3877fd8693a74df58.ttf",
+    "static/media/grapes.jpg": "./static/media/grapes.4745760f77c5bcbbee8d.jpg",
+    "static/media/watermelon.jpg": "./static/media/watermelon.cea454839a9f2d193a32.jpg",
+    "static/media/banana.jpg": "./static/media/banana.43f4ade8a4315edd5d57.jpg",
+    "static/media/orange.jpg": "./static/media/orange.76b550fb632e8b58616f.jpg",
+    "static/media/lemon.jpg": "./static/media/lemon.f2e6f67f1f5afb9ceb2c.jpg",
+    "index.html": "./index.html",
+    "main.a28c79d1.css.map": "./static/css/main.a28c79d1.css.map",
+    "main.00b0cfda.js.map": "./static/js/main.00b0cfda.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a28c79d1.css",
+    "static/js/main.00b0cfda.js"
+  ]
+}
