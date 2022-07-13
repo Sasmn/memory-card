@@ -9,15 +9,28 @@ const Main = () => {
   function importAllImages(i) {
     return i.keys().map(i);
   }
-  const images = importAllImages(
-    require.context("../Images", false, /\.(png|jpe?g|svg)$/)
-  );
-  const str = "/static/media/";
+
+  const fruitNames = [
+    "apple",
+    "banana",
+    "broccoli",
+    "grapes",
+    "kiwi",
+    "lemon",
+    "orange",
+    "pepper",
+    "pineapple",
+    "strawberries",
+    "tomato",
+    "watermelon",
+  ];
 
   const [cards, setCards] = useState(
-    images.map((img) => ({
+    importAllImages(
+      require.context("../Images", false, /\.(png|jpe?g|svg)$/)
+    ).map((img, index) => ({
       key: nanoid(),
-      name: img.slice(str.length, img.indexOf(".")),
+      name: fruitNames[index],
       src: img,
       clicked: 0,
     }))

@@ -13,6 +13,9 @@ const Card = (props) => {
       })
       .then((color) => {
         card.current.style.backgroundColor = color.rgba;
+      })
+      .catch((e) => {
+        console.log(e);
       });
   });
 
@@ -23,7 +26,12 @@ const Card = (props) => {
         onClick={() => props.handleClick(props.id)}
         className="card-inside"
       >
-        <img ref={img} src={props.src} alt={props.name} />
+        <img
+        //   crossorigin="anonymous"
+          ref={img}
+          src={props.src}
+          alt={props.name}
+        />
         <h4>{props.name}</h4>
       </div>
     </div>
