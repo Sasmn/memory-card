@@ -1,9 +1,11 @@
 .in {
   transform: rotateX(0deg);
+  transition: 2s;
 }
 
 .out {
   transform: perspective(1000px) rotateX(-90deg);
+  transition: 1s;
 }
 
 .page {
@@ -13,16 +15,34 @@
   left: 0;
   width: 100vw;
   height: 200vh;
-  transition: 1.5s;
 
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10%;
   padding-bottom: 100vh;
+  font-size: 6vmin;
 
-  button{
+  button {
     cursor: pointer;
+    font-size: 6vmin;
+    padding: 1% 2%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(51, 165, 127, 0.363);
+    box-shadow: 4px 4px black;
+    transition: 0.2s;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      box-shadow: 2px 2px black;
+      transform: translateX(2px) translateY(2px) scale(1.1);
+    }
   }
 }
