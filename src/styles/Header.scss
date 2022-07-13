@@ -1,20 +1,13 @@
 header {
-  flex: 0 0 20%;
+  flex: 0 0 min-content;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
 
   h1 {
     margin: 0;
     font-size: 8vmin;
     text-align: center;
-  }
-
-  p {
-    font-size: 5vmin;
-    margin: 5px;
   }
 }

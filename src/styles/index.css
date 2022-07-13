@@ -20,4 +20,5 @@ code {
 * {
   font-family: "EduVIC", cursive;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }

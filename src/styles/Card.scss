@@ -16,6 +16,7 @@
   h4 {
     margin: 0;
     text-align: center;
+    font-size: 2vmin;
   }
 }
 
@@ -25,8 +26,12 @@
   aspect-ratio: 1/1.1;
   border-radius: 10%;
   cursor: pointer;
-
+  overflow: hidden;
   padding: 4%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (hover: hover) and (pointer: fine) {

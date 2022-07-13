@@ -8,12 +8,13 @@ import { ScoreContext } from "./Contexts/scoreContext";
 function App() {
   const context = useContext(ScoreContext);
 
-  console.log(context.end);
   return (
     <div className="App">
-      <div className={context.end ? "game g-out" : "game g-in"}>
-        <Header />
-        <Main />
+      <div className={context.end ? "g-out" : "g-in"}>
+        <div className="game">
+          <Header />
+          <Main />
+        </div>
         <div className="rotate-help"></div>
       </div>
       <div className="background"></div>
