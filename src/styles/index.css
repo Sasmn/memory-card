@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: EduVIC;
+  src: url(../Font/Edu_VIC_WA_NT_Beginner/EduVICWANTBeginner-VariableFont_wght.ttf);
+}
+
+*{
+  font-family: 'EduVIC', cursive;
+}
