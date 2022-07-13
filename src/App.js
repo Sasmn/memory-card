@@ -14,6 +14,7 @@ function App() {
       <div className={context.end ? "game g-out" : "game g-in"}>
         <Header />
         <Main />
+        <div className="rotate-help"></div>
       </div>
       <div className="background"></div>
       <NewGame />
