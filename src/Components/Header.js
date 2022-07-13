@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <h1>Memory game</h1>
-      <p>Click every card ones!</p>
+      {/* <p>Click every card ones!</p> */}
       <Score />
     </header>
   );

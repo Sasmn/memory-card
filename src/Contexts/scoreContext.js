@@ -5,6 +5,7 @@ function ScoreContextProvider(props) {
   const [state, setState] = useState({
     currentScore: 0,
     maxScore: localStorage.getItem("maxScore") || 0,
+    end: false,
   });
 
   function updateState() {
@@ -15,17 +16,34 @@ function ScoreContextProvider(props) {
         max = current;
       }
 
+      let newEnd;
+      console.log(current);
+      if (current === 12) {
+        console.log("PRRRRRRRRRRRRRRRRR");
+        newEnd = true;
+      } else {
+        newEnd = false;
+      }
       return {
         currentScore: current,
         maxScore: max,
+        end: newEnd,
       };
     });
   }
 
+  function toggleEnd() {
+    setState((prev) => ({
+      ...prev,
+      end: !prev.end,
+    }));
+  }
+
   function resetScore() {
     setState((prev) => ({
+      ...prev,
       currentScore: 0,
-      maxScore: prev.maxScore,
+      end: true,
     }));
   }
 
@@ -38,6 +56,8 @@ function ScoreContextProvider(props) {
       value={{
         currentScore: state.currentScore,
         maxScore: state.maxScore,
+        end: state.end,
+        toggleEnd: toggleEnd,
         updateScore: updateState,
         resetScore: resetScore,
       }}

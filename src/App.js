@@ -1,14 +1,22 @@
 import "./styles/App.scss";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
-import React from "react";
+import React, { useContext } from "react";
+import NewGame from "./Components/NewGame";
+import { ScoreContext } from "./Contexts/scoreContext";
 
 function App() {
+  const context = useContext(ScoreContext);
+
+  console.log(context.end);
   return (
     <div className="App">
-      <Header />
-      <Main />
+      <div className={context.end ? "game g-out" : "game g-in"}>
+        <Header />
+        <Main />
+      </div>
       <div className="background"></div>
+      <NewGame />
     </div>
   );
 }

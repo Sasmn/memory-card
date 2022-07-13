@@ -1,6 +1,6 @@
 .App {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -15,5 +15,19 @@
     z-index: -10;
     background-image: url(../BackgroundImage/markus-spiske-pZX9QPxeIQc-unsplash.jpg);
     filter: blur(1vh);
+  }
+
+  .game {
+    transition: 1.5s;
+    box-sizing: border-box;
+    padding-bottom: 100vh;
+  }
+
+  .g-out {
+    transform: perspective(1000px) rotateX(90deg);
+  }
+
+  .g-in {
+    transform: rotateX(0);
   }
 }

@@ -17,6 +17,6 @@ code {
   src: url(../Font/Edu_VIC_WA_NT_Beginner/EduVICWANTBeginner-VariableFont_wght.ttf);
 }
 
-*{
-  font-family: 'EduVIC', cursive;
+* {
+  font-family: "EduVIC", cursive;
 }

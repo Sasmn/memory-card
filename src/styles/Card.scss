@@ -21,21 +21,21 @@
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 400px) {
   .card {
     flex-basis: calc(76% / 3);
     margin: 2%;
     padding: 2%;
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 600px) {
   .card {
     flex-basis: calc(68% / 4);
     margin: 2%;
     padding: 2%;
   }
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1000px) {
   .card {
     flex-basis: calc(76% / 6);
     margin: 1%;
