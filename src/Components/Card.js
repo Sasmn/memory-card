@@ -17,8 +17,12 @@ const Card = (props) => {
   });
 
   return (
-    <div onClick={() => props.handleClick(props.id)} className="card">
-      <div ref={card} className="card-inside">
+    <div className="card">
+      <div
+        ref={card}
+        onClick={() => props.handleClick(props.id)}
+        className="card-inside"
+      >
         <img ref={img} src={props.src} alt={props.name} />
         <h4>{props.name}</h4>
       </div>

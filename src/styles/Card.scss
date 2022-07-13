@@ -1,7 +1,6 @@
 .card {
   flex: 1;
   aspect-ratio: 1/1.1;
-  transition: 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,10 +31,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: 0.2s;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .card:hover {
+  .card-inside:hover {
     transform: scale(1.05);
     opacity: 0.7;
   }
@@ -43,7 +43,7 @@
 
 @media (orientation: portrait) {
   .card {
-    flex-basis: calc((98% - 4% * 3) / 3);
+    flex-basis: calc((98% - 4% * 2) / 3);
     max-height: calc((97% - 4% * 3) / 4);
   }
 }
@@ -51,6 +51,13 @@
 @media (orientation: landscape) {
   .card {
     flex-basis: calc((97% - 4% * 3) / 4);
-    max-height: calc((98% - 4% * 3) / 3);
+    max-height: calc((98% - 4% * 2) / 3);
+  }
+
+  @media screen and (min-width: 1300px) {
+    .card {
+      flex-basis: calc((95% - 4% * 5) / 6);
+      max-height: calc((99% - 4% * 1) / 2);
+    }
   }
 }
